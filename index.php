@@ -176,7 +176,7 @@ $app_name = idx($app_info, 'name', '');
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '<?php echo AppInfo::appID(); ?>', // App ID
-          channelUrl : '//<?php echo $_SERVER["HTTP_HOST"]; ?>/channel.html', // Channel File
+          channelUrl : '//<?php echo $_SERVER["HTTP_HOST"]; ?>/channel.php', // Channel File
           status     : true, // check login status
           cookie     : true, // enable cookies to allow the server to access the session
           xfbml      : true // parse XFBML
@@ -205,7 +205,9 @@ $app_name = idx($app_info, 'name', '');
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
-
+    
+	<div id="contentArea" role="main">
+	
     <header class="clearfix">
       <?php if (isset($basic)) { ?>
       <p id="picture" style="background-image: url(https://graph.facebook.com/<?php echo he($user_id);
@@ -301,6 +303,6 @@ $app_name = idx($app_info, 'name', '');
     <?php
       }
     ?>
-
+	</div>
   </body>
 </html>
